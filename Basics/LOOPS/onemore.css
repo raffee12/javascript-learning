@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #ffefba;
+  color: #333;
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas: "h h h" " n c s" "n f f";
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 80px 1fr 70px;
+}
+header {
+  grid-area: h;
+}
+nav {
+  grid-area: n;
+}
+
+main {
+  grid-area: c;
+}
+aside {
+  grid-area: s;
+}
+footer {
+  grid-area: f;
+}
+header,
+nav,
+main,
+aside,
+footer {
+  padding: 20px;
+  background-color: #ee9ca7;
+  border: 1px solid #ffdde1;
+}

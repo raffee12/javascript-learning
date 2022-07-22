@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semantic Html</title>
+  </head>
+  <style>
+    body {
+      background: #373b44; /* fallback for old browsers */
+      background: -webkit-linear-gradient(
+        to right,
+        #4286f4,
+        #373b44
+      ); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #4286f4, #373b44);
+      color: #fff;
+    }
+    .container {
+      max-width: 60rem;
+      margin: 150px auto;
+      padding: 3rem;
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      /* background-color: #333; */
+    }
+    .boxes {
+      width: 150px;
+      height: 200px;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      padding: 2rem;
+    }
+    button {
+      padding: 16px 48px;
+      margin-top: 20px;
+      border-radius: 10px;
+      border: 1px solid white;
+      background: none;
+      color: hotpink;
+      font-size: 22px;
+    }
+    button:hover {
+      background-color: hotpink;
+      color: honeydew;
+    }
+    @media (max-width: 678px) {
+      .container {
+        max-width: 16rem;
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+    }
+  </style>
+  <body>
+    <div class="container">
+      <header id="heading">
+        <h1 id="title">Example</h1>
+        <div class="boxes box-1">
+          <h2>Example 1</h2>
+          <button>Click</button>
+        </div>
+      </header>
+      <header id="heading">
+        <h1 id="title">Example</h1>
+        <div class="boxes box-2">
+          <h2>Example 1</h2>
+          <button>Click</button>
+        </div>
+      </header>
+      <header id="heading">
+        <h1 id="title">Example</h1>
+        <div class="boxes box-3">
+          <h2>Example 1</h2>
+          <button>Click</button>
+        </div>
+      </header>
+    </div>
+    <script>
+      function fireOff() {
+        const buttons = document.querySelectorAll("button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].style.backgroundColor = "purple";
+        }
+      }
+
+      const button = document.querySelector("button");
+      button.addEventListener("click", fireOff);
+      const box3 = document.querySelector(".box-3");
+      const box2 = document.querySelector(".box-2");
+      const box1 = document.querySelector(".box-1");
+      function changingBg() {
+        box3.style.backgroundColor = "pink";
+      }
+      function changingSecbg() {
+        box2.style.backgroundColor = "pink";
+      }
+      function changingThirdbg() {
+        box1.style.backgroundColor = "pink";
+      }
+
+      box3.addEventListener("mouseover", changingBg);
+      box2.addEventListener("mouseover", changingSecbg);
+      box1.addEventListener("mouseover", changingThirdbg);
+    </script>
+  </body>
+</html>

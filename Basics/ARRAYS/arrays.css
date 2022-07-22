@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+button,
+label {
+  /* width: 100%; */
+  display: block;
+}
+h1 {
+  margin: 0;
+}
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+
+  /* padding: 3rem 2rem; */
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header {
+  padding: 2rem;
+
+  background-color: #333;
+}
+.title {
+  color: #ffcc33;
+}
+.list-items {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-items li a {
+  color: #fff;
+}
+
+.section .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 500px;
+}
+.section {
+  background-color: #ffcc33;
+}
+.section .para {
+  font-size: 32px;
+  color: #525252;
+}
+.section .text {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #f12711;
+  margin-right: 90px;
+}
+.section .btn {
+  margin-top: 30px;
+  padding: 15px 30px;
+  border-radius: 5px;
+  background-color: #3d72b4;
+  color: grey;
+  border: 1px solid #f5af19;
+  font-size: 22px;
+}
+.form {
+  background-color: #e94057;
+  margin: auto;
+  padding: 30px;
+}
+#my-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 700px;
+  place-items: center;
+}
+#my-form label {
+  padding: 1rem;
+  color: #f5af19;
+  font-weight: bold;
+  font-size: 32px;
+}
+#my-form input {
+  padding: 1rem;
+  border-radius: 5px;
+  border: 0;
+}

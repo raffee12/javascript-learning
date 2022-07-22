@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4;
+  color: #333;
+  display: grid;
+  min-height: 100vh;
+  grid-template-areas:
+    "a a a"
+    " b c d"
+    " b e e";
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 80px 1fr 70px;
+}
+
+header {
+  grid-area: a;
+}
+main {
+  grid-area: c;
+}
+nav {
+  grid-area: b;
+}
+aside {
+  grid-area: d;
+}
+footer {
+  grid-area: e;
+}
+header,
+main,
+nav,
+aside,
+footer {
+  padding: 20px;
+  background-color: steelblue;
+  color: #fff;
+  border: 1px solid skyblue;
+}

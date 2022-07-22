@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom Manipulation</title>
+  </head>
+  <style>
+    body {
+      background: #0f2027;
+      background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
+      background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+
+      color: #fff;
+    }
+    .container {
+      max-width: 60rem;
+      margin: 10px auto;
+      padding: 5rem 2rem;
+      border: 1px solid #fff;
+    }
+    ul {
+      list-style: none;
+    }
+    #list-items li {
+      background-color: #ffff;
+      color: #333;
+      padding: 0.5rem;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    #header-title {
+      margin-block: 10px;
+      padding: 1rem;
+      color: #fff;
+      font-size: 48px;
+      font-weight: bold;
+      font-style: italic;
+      text-align: center;
+    }
+    #live {
+      background-color: #0f2027;
+      color: pink;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <h1 id="header-title">Movie Franchise</h1>
+      <ul id="list-items">
+        <li class="lists">The Matrix</li>
+        <li class="lists">The Stars</li>
+        <li class="lists">Netflix</li>
+        <li class="lists">Sacrifice</li>
+        <li class="lists">Marvel</li>
+      </ul>
+    </div>
+    <script>
+      function all() {
+        function content() {
+          var container = document.querySelector(".container");
+          container.style.backgroundColor = "purple";
+          container.style.marginTop = "150px";
+          container.style.borderRadius = "30px";
+          container.style.paddingBottom = "30px";
+          var ul = document.getElementById("list-items");
+          var li = document.createElement("li");
+          // li.className = "lists";
+          li.classList.add("lists");
+
+          var lim = li.classList.contains("lists");
+          console.log(lim);
+          // console.log(li.classList.contains("lists"));
+          // li.id = "header-title";
+          //   li.setAttribute("id", "header-title");
+          //   li.removeAttribute("id");
+          //   li.getAttribute("id");
+          li.style.backgroundColor = "#333";
+          li.textContent = "For Myself";
+
+          li.style.color = "#fff";
+          ul.appendChild(li);
+          li.remove();
+          var li = document.getElementsByClassName("lists");
+          ul.childNodes[1].style.backgroundColor = "blue";
+          for (var i = 0; i < li.length; i++) {
+            li[i].style.backgroundColor = "steelblue";
+            li[i].style.color = "#fff";
+            li[i].style.borderRadius = "5px";
+          }
+          ul.childNodes[1].style.backgroundColor = "blue";
+          ul.childNodes[3].style.backgroundColor = "orange";
+          ul.childNodes[5].style.backgroundColor = "#f06";
+          ul.childNodes[7].style.backgroundColor = "#333";
+          ul.childNodes[7].style.backgroundColor = "#333";
+        }
+        content();
+        function head() {
+          var header = document.getElementById("header-title");
+
+          console.log(header.getAttribute("id"));
+          header.innerHTML = "<h3>Javascript Dom manipulation</h3>";
+          header.style.color = "red";
+        }
+        head();
+      }
+      all();
+    </script>
+  </body>
+</html>

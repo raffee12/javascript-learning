@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Delagation</title>
+  </head>
+  <style>
+    :root {
+      --border: 1px solid white;
+    }
+    body {
+      background-color: #333;
+    }
+    #sports {
+      border: var(--border);
+      background-color: transparent;
+      margin: 100px auto;
+      padding: 1rem;
+      width: 32rem;
+    }
+    #sports > * {
+      border: var(--border);
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 1.234rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+  </style>
+  <body>
+    <div id="sports">
+      <div id="football">Football</div>
+      <div id="baseball">Baseball</div>
+      <div id="cheesgame">Chesegame</div>
+      <div id="vollyball">Vollyball</div>
+    </div>
+  </body>
+  <script>
+    document.querySelector("#sports").addEventListener("click", (e) => {
+      var hey = e.target;
+      if (hey.matches("div")) {
+        hey.style.backgroundColor = "lightgrey";
+      }
+    });
+    function sipping() {
+      const ul = document.querySelector("#sports");
+      const li = document.createElement("div");
+      li.innerHTML = "songs";
+      li.setAttribute("id", "rugby");
+      console.log(li);
+      ul.appendChild(li);
+    }
+    sipping();
+    // document.querySelector("#football").addEventListener("click", (e) => {
+    //   const targetting = e.target;
+    //   targetting.style.backgroundColor = "#fff";
+    //   targetting.style.color = "#333";
+    //   if (targetting.matches("div")) console.log("Football playing");
+    // });
+
+    // document.querySelector("#baseball").addEventListener("click", (e) => {
+    //   const matter = e.target;
+    //   if (matter.matches("div")) matter.style.backgroundColor = "#f04";
+    //   matter.style.color = "#404";
+    // });
+    // document.querySelector("#cheesgame").addEventListener("click", (e) => {
+    //   const reminded = e.target;
+    //   if (reminded.matches("div")) reminded.style.backgroundColor = "yellow";
+    //   reminded.style.color = "#fff";
+    // });
+
+    // document.querySelector("#vollyball").addEventListener("click", (e) => {
+    //   const caring = e.target;
+    //   if (caring.matches("div")) caring.style.backgroundColor = "purple";
+    //   caring.style.color = "#333";
+    // });
+  </script>
+</html>

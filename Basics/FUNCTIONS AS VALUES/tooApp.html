@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .container {
+      max-width: 50rem;
+      margin: auto;
+      padding: 2rem 3rem;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <input type="text" />
+      <input type="date" id="input-date" />
+      <button onclick="addingToods()">Add Me</button>
+      <div id="lists"></div>
+    </div>
+    <script>
+      let todos;
+
+      const seeAt = JSON.parse(localStorage.getItem("keys"));
+      if (Array.isArray(seeAt)) {
+        todos = seeAt;
+      } else {
+        todos = [
+          {
+            title: "Css",
+
+            date: "01-02-2021",
+
+            id: "id1",
+          },
+          {
+            title: "Css",
+
+            date: "01-02-2021",
+
+            id: "id2",
+          },
+          {
+            title: "Css",
+
+            date: "01-02-2021",
+
+            id: "id3",
+          },
+        ];
+      }
+      function deleteMe(e) {
+        const event = e.target;
+        const id = event.id;
+
+        todos = todos.filter((todo) => {
+          if (todo.id === id) {
+            return false;
+          } else {
+            return true;
+          }
+        });
+        rendering();
+        savingTodos();
+      }
+      function addingToods() {
+        var input = document.querySelector("input");
+        var inputValue = input.value;
+        var date = document.querySelector("#input-date");
+        var dateValue = date.value;
+        var idValue = "" + new Date().getTime();
+        todos.push({
+          title: inputValue,
+          date: dateValue,
+          id: idValue,
+        });
+        rendering();
+        savingTodos();
+      }
+      addingToods();
+      function savingTodos() {
+        localStorage.setItem("keys", JSON.stringify(todos));
+      }
+      function rendering() {
+        var lists = document.querySelector("#lists");
+        lists.innerHTML = "";
+        todos.forEach((todo) => {
+          var div = document.createElement("div");
+          div.innerText = todo.title + "" + todo.date;
+          var lists = document.querySelector("#lists");
+          lists.appendChild(div);
+          var button = document.createElement("button");
+          button.innerText = "Delete Me";
+          button.id = todo.id;
+          button.onclick = deleteMe;
+          div.appendChild(button);
+        });
+      }
+      rendering();
+    </script>
+  </body>
+</html>

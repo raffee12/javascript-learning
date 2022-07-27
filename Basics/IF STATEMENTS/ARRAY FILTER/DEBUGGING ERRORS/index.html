@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+    .container {
+      background-color: #333;
+      width: 300px;
+      height: 300px;
+      text-align: center;
+      padding: 3rem 2rem;
+      color: aliceblue;
+      display: grid;
+      place-items: center;
+    }
+    #timer {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .buttons i {
+      border: none;
+      background-color: transparent;
+      font-size: 23px;
+    }
+    #stopbtn {
+      /* background-color: red; */
+      border: none;
+    }
+    #play {
+      background-color: green;
+      font-size: 32px;
+      padding: 0.2rem;
+    }
+    #pause {
+      background-color: orange;
+      font-size: 32px;
+      padding: 0.2rem;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div id="timer">00:00:00</div>
+      <div class="buttons">
+        <button id="stopbtn">
+          <i class="fa-solid fa-play" id="play"></i>
+        </button>
+        <div id="restbtn">
+          <i class="fa-solid fa-arrow-rotate-left" id="reset"></i>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const stopbtn = document.querySelector("#stopbtn");
+      const restbtn = document.querySelector("#restbtn");
+      let leadingS = 0;
+      let leadingM = 0;
+      let leadingH = 0;
+      let sec = 0;
+      let min = 0;
+      let h = 0;
+      let intervalTiming = null;
+      let status = "stoped";
+      function stopWatch() {
+        sec++;
+        if (sec / 60 === 1) {
+          sec = 0;
+          min++;
+          if (min / 60 === 1) {
+            min = 0;
+            h++;
+          }
+        }
+        if (sec < 10) {
+          leadingS = "0" + sec.toString();
+        } else {
+          leadingS = sec;
+        }
+        if (min < 10) {
+          leadingM = "0" + min.toString();
+        } else {
+          leadingM = min;
+        }
+        if (h < 10) {
+          leadingH = "0" + h.toString();
+        } else {
+          leadingH = h;
+        }
+        let display = (document.getElementById("timer").innerText =
+          leadingH + ":" + leadingM + ":" + leadingS);
+        // h + ":" + min + ":" + sec);
+      }
+      stopbtn.addEventListener("click", function () {
+        if (status === "stoped") {
+          intervalTiming = window.setInterval(stopWatch, 1000);
+          document.getElementById(
+            "stopbtn"
+          ).innerHTML = `<i class ="fa-solid fa-pause " id ="pause"></i> `;
+          status = "something";
+        } else {
+          window.clearInterval(intervalTiming);
+          document.getElementById(
+            "stopbtn"
+          ).innerHTML = `<i class ="fa-solid fa-play " id ="play"></i> `;
+          status = "stoped";
+        }
+      });
+      restbtn.addEventListener("click", function () {
+        window.clearInterval(intervalTiming);
+        sec = 0;
+        min = 0;
+        h = 0;
+        document.getElementById("timer").innerHTML = "00:00:00";
+      });
+    </script>
+  </body>
+</html>

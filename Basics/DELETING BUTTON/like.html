@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --border: 1px solid #333;
+      }
+      body {
+        background: #ffd89b; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #19547b,
+          #ffd89b
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #19547b, #ffd89b);
+      }
+      .container {
+        max-width: 32rem;
+        margin: 100px auto;
+        padding: 3rem 2rem;
+        border: var(--border);
+      }
+      .div1 {
+        text-align: center;
+        border: var(--border);
+        width: 100px;
+        height: 150px;
+        margin: auto;
+      }
+      .div2 {
+        border: var(--border);
+        height: 150px;
+        width: 100px;
+        margin: 30px auto;
+        display: grid;
+        place-items: center;
+      }
+      button {
+        padding: 1rem;
+        background-color: transparent;
+        border: var(--border);
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="div1">
+        <h1>1</h1>
+      </div>
+      <div class="div2">
+        <h1>2</h1>
+    
+    <a href="">    <button>Click Me</button></a>
+      </div>
+    </div>
+    <script>
+      const window1 = "Forever falls apart";
+      window.addEventListener(
+        "click",
+        () => {
+          console.log(window1);
+        },
+        false
+      );
+      const document1 = "This is the document";
+      document.addEventListener(
+        "click",
+        () => {
+          console.log(document1);
+        },
+        false
+      );
+      const div1 = "this div 1";
+      document.querySelector(".div1").addEventListener(
+        "click",
+        () => {
+          console.log(div1);
+        },
+        false
+      );
+      const div2 = "This is the div2 ";
+      document.querySelector(".div2").addEventListener(
+        "click",
+        (e) => {
+          // e.stopPropagation();
+          console.log(div2);
+        },
+        { once: true }
+      );
+      const btn = document
+        .querySelector("button")
+        .addEventListener("click", (e) => {
+          console.log((e.target.style.backgroundColor = "pink"));
+        });
+    </script>
+  </body>
+</html>

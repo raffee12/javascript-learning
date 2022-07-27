@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;1,600&family=Ubuntu+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --ff-500: "Fira Sans", sans-serif;
+        --ff-400: "Ubuntu Condensed" sans-serif;
+        --border-1: 1px solid var(--safety-orange);
+        --border-2: 1px solid var(--platinum);
+        --safety-orange: hsl(25, 100%, 50%);
+        --lavender-gray: hsl(230, 19%, 81%);
+        --persian-rose: hsl(328, 100%, 59%);
+        --red-crayola: hsl(341, 100%, 49%);
+        --eerie-black: hsl(240, 6%, 10%);
+        --light-gray: hsl(0, 0%, 80%);
+        --cultured-2: hsl(210, 60%, 98%);
+        --platinum: hsl(0, 0%, 90%);
+        --gray-web: hsl(220, 5%, 49%);
+        --cultured: hsl(0, 0%, 93%);
+        --black_10: hsla(0, 0%, 0%, 0.1);
+        --black_5: hsla(0, 0%, 0%, 0.05);
+        --white-1: hsl(0, 0%, 100%);
+        --white-2: hsl(0, 14%, 98%);
+        --black: hsl(0, 0%, 0%);
+      }
+      body {
+        font-family: var(--ff-400);
+        font-family: var(--ff-500);
+        display: grid;
+        place-content: center;
+        height: 100vh;
+        background: url("https://media.istockphoto.com/photos/light-bulbs-glowing-with-book-the-idea-of-reading-books-knowledge-and-picture-id1396463217?b=1&k=20&m=1396463217&s=170667a&w=0&h=naKtCsp03Xk65tar2Y3TwZ1z0Mm1PKa0ucjvNQ7k3kc=");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+      }
+      #h1 {
+        width: 300px;
+        height: 100px;
+        background-color: var(--gray-web);
+        color: var(--safety-orange);
+        display: grid;
+        place-items: center;
+        border: var(--border-1);
+        font-size: 22px;
+        font-weight: bold;
+        margin: auto;
+        border-radius: 10px;
+      }
+      .card {
+        max-width: 32rem;
+        border: var(--border-2);
+        margin-top: 60px;
+        padding: 1rem;
+        background-color: var(--cultured-2);
+        border-radius: 10px;
+      }
+      .card p {
+        opacity: 50%;
+        color: var(--persian-rose);
+      }
+      span {
+        display: block;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1rem;
+        color: var(--lavender-gray);
+      }
+      #btn {
+        padding: 1rem;
+        margin-left: 200px;
+        margin-top: 30px;
+        border-radius: 5px;
+      }
+    </style>
+    <title>Quote App</title>
+  </head>
+  <body>
+    <header id="h1">JS Quote Generator</header>
+    <div class="card">
+      <p>
+        You're gone and I gotlta stay high all the time To keep you off my mind
+        Ooh-ooh, ooh-ooh High all the time to keep you off my mind Ooh-ooh,
+        ooh-ooh Spend my days locked in a haze Trying to forget you babe, I fall
+        back down Gotta stay high all my life to forget I'm missing you Ooh-ooh,
+        ooh-ooh
+      </p>
+      <span>Tove Lo</span>
+      <button id="btn">More quotes</button>
+    </div>
+    <script>
+      var p = document.querySelector("p");
+      var span = document.querySelector("span");
+      var btn = document.querySelector("#btn");
+
+      var qoutes = [
+        {
+          p: `"Yeah, you can be the greatest, you can be the best
+You can be the King Kong bangin' on your chest
+You can beat the world, you can beat the war
+You can talk to God, go bangin' on his door
+You can throw your hands up, you can beat the clock (Yeah)
+You can move a mountain, you can break rocks
+Some will call it practice, some will call it luck
+But either way you're going to the history book"`,
+          span: "The Scrip",
+        },
+        {
+          p: `"When the leader of the bad guys sang
+Something soft and soaked in pain
+I heard the echo from his secret hideaway
+He must've forgot to close his door
+As he cranked out those dismal chords
+And his four walls declared him insane"`,
+          span: " Twnty On",
+        },
+      ];
+      btn.addEventListener("click", () => {
+        let ranodm = Math.floor(Math.random() * qoutes.length);
+        p.innerText = qoutes[ranodm].p;
+        span.innerText = qoutes[ranodm].span;
+      });
+    </script>
+  </body>
+</html>

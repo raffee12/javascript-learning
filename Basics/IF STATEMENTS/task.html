@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+    <style>
+      body {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        width: 400px;
+        padding: 20px 10px;
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 0 3px;
+        display: flex;
+        gap: 20px;
+      }
+      input {
+        border-radius: 5px;
+        width: 70%;
+      }
+      #btn {
+        margin-left: 20px;
+        border-radius: 5px;
+        font-size: 24px;
+      }
+      .btn {
+        margin-left: 20px;
+        border-radius: 5px;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" placeholder="Enter Task" id="task" />
+      <input type="date" id="date-picker" />
+      <button id="btn" onclick="adTodo()">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <div class="note"></div>
+    </div>
+    <script>
+      let todos = [
+        {
+          title: "Homework",
+          date: "01-02-2020",
+          id: "id1",
+        },
+        {
+          title: "Homework",
+          date: "01-02-2020",
+          id: "id2",
+        },
+        {
+          title: "Homework",
+          date: "01-02-2020",
+          id: "id3",
+        },
+      ];
+      function adTodo() {
+        var input = document.querySelector("#task");
+        var inputValue = input.value;
+        var date = document.querySelector("#date-picker");
+        var dateValue = date.value;
+        var idVal = "" + new Date().getTime();
+        todos.push({
+          title: inputValue,
+          date: dateValue,
+          id: idVal,
+        });
+        display();
+      }
+      function deleteMe(e) {
+        const targetingEvent = e.target;
+        const id = targetingEvent.id;
+        todos = todos.filter((app) => {
+          if (app.id === id) {
+            return false;
+          } else {
+            return true;
+          }
+        });
+        display();
+      }
+      function display() {
+        const note = document.querySelector(".note");
+        note.innerHTML = "";
+        todos.forEach((app) => {
+          let div = document.createElement("div");
+          div.innerText = app.title + "" + app.date;
+          let button = document.createElement("button");
+          button.innerHTML = '   <i class="fa-solid fa-minus"></i>';
+          div.appendChild(button);
+          button.classList.add("btn");
+          button.id = app.id;
+          button.onclick = deleteMe;
+          const note = document.querySelector(".note");
+          note.appendChild(div);
+        });
+      }
+      display();
+    </script>
+  </body>
+</html>
